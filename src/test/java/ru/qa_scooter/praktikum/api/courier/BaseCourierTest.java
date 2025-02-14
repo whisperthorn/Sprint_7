@@ -1,7 +1,6 @@
 package ru.qa_scooter.praktikum.api.courier;
 
 import io.restassured.response.Response;
-import org.junit.After;
 import org.junit.Before;
 import ru.qa_scooter.praktikum.api.BaseApiTest;
 import java.util.Random;

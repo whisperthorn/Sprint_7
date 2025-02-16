@@ -6,6 +6,7 @@ import org.junit.Before;
 import ru.qa_scooter.praktikum.api.BaseApiTest;
 
 import static models.TestDataLoader.getFirstTestData;
+import static org.apache.http.HttpStatus.SC_OK;
 
 public class BaseOrderTest extends BaseApiTest {
     protected static final String TEST_DATA_PATH = "src/test/resources/orderTestData.json";
@@ -23,6 +24,6 @@ public class BaseOrderTest extends BaseApiTest {
     @After
     public void cleanUp(){
         response = sendPutRequestOneParam(CANCEL_ORDERS_HANDLE,"track", trackValue);
-        verifyStatusCode(response,200);
+        verifyStatusCode(response,SC_OK);
     }
 }

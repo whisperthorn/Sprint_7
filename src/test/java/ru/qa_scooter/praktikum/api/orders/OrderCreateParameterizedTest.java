@@ -11,6 +11,9 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import java.util.Collection;
 
+import static org.apache.http.HttpStatus.SC_CREATED;
+import static org.apache.http.HttpStatus.SC_OK;
+
 @RunWith(Parameterized.class)
 public class OrderCreateParameterizedTest extends BaseOrderTest {
 
@@ -39,7 +42,7 @@ public class OrderCreateParameterizedTest extends BaseOrderTest {
         //Отправляем POST запрос на создание заказа
         response = sendPostRequest(ORDERS_HANDLE, order);
         //Проверяем код ответа
-        verifyStatusCode(response,201);
+        verifyStatusCode(response,SC_CREATED);
         //Проверяем что в теле ответа есть track и тип его значения int
         verifyResponseBodyInt(response,"track");
     }
@@ -49,6 +52,6 @@ public class OrderCreateParameterizedTest extends BaseOrderTest {
     public void cleanUp(){
         trackValue = String.valueOf(response.jsonPath().getInt("track"));
         response = sendPutRequestOneParam(CANCEL_ORDERS_HANDLE,"track", trackValue);
-        verifyStatusCode(response,200);
+        verifyStatusCode(response,SC_OK);
     }
 }

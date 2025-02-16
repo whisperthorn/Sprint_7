@@ -6,6 +6,7 @@ import io.qameta.allure.junit4.DisplayName;
 import models.OrderListPojo;
 import org.junit.Test;
 
+import static org.apache.http.HttpStatus.SC_OK;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertFalse;
 
@@ -18,7 +19,7 @@ public class OrderListTest extends BaseOrderTest {
         //Отправляем GET запрос для получения списка заказов
         response = sendGetRequest(ORDERS_HANDLE);
         //Проверяем код ответа
-        verifyStatusCode(response,200);
+        verifyStatusCode(response,SC_OK);
         // Десериализуем JSON
         OrderListPojo orderListResponse = response.as(OrderListPojo.class);
         //Проверяем тело ответа на наличие списка заказов

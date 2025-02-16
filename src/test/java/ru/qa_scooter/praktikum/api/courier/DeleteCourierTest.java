@@ -2,6 +2,7 @@ package ru.qa_scooter.praktikum.api.courier;
 
 import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
+import models.CourierPojo;
 import org.junit.Test;
 
 public class DeleteCourierTest extends BaseCourierTest{
@@ -12,13 +13,13 @@ public class DeleteCourierTest extends BaseCourierTest{
     public void testDeleteCourierAccount(){
 
         //Тело запроса на создание аккаунта
-        jsonBody = String.format("{\"login\": \"%s\", \"password\": \"%s\"}", login, password);
+        courier = new CourierPojo(login,password,null);
         //Отправляем POST запрос на создание аккаунта
-        sendPostRequest("/api/v1/courier", jsonBody);
+        sendPostRequest(COURIER_HANDLE, courier);
         //Отправляем POST запрос на авторизацию и получаем id
-        int id = sendPostRequest("/api/v1/courier/login", jsonBody).jsonPath().getInt("id");
+        int id = sendPostRequest(COURIER_LOGIN_HANDLE, courier).jsonPath().getInt("id");
         //Отправляем DELETE запрос
-        response = sendDeleteRequest("/api/v1/courier/", id);
+        response = sendDeleteRequest(COURIER_DELETE_HANDLE, id);
         //Проверяем код ответа
         verifyStatusCode(response,200);
         //Проверяем тело ответа
@@ -31,7 +32,7 @@ public class DeleteCourierTest extends BaseCourierTest{
     public void testDeleteCourierNoId(){
 
         //Отправляем DELETE запрос без id
-        response = sendDeleteRequest("/api/v1/courier/");
+        response = sendDeleteRequest(COURIER_DELETE_HANDLE);
         //Проверяем код ответа
         verifyStatusCode(response,400);
         //Проверяем тело ответа
@@ -43,10 +44,9 @@ public class DeleteCourierTest extends BaseCourierTest{
     @Description("Попытка удалить несуществующий аккаунт через id")
     public void testDeleteCourierWrongId(){
 
-        //Создаем случайный id
         int id = 999999;
         //Отправляем DELETE запрос
-        response = sendDeleteRequest("/api/v1/courier/", id);
+        response = sendDeleteRequest(COURIER_DELETE_HANDLE, id);
         //Проверяем код ответа
         verifyStatusCode(response,404);
         //Проверяем тело ответа

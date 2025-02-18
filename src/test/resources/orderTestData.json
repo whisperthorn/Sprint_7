@@ -1,0 +1,53 @@
+[
+  {
+    "firstName": "Naruto",
+    "lastName": "Uchiha",
+    "address": "Konoha, 142 apt.",
+    "metroStation": "4",
+    "phone": "+7 800 355 35 35",
+    "rentTime": 5,
+    "deliveryDate": "2025-06-06",
+    "comment": "Заказываем черный самокат",
+    "color": [
+      "BLACK"
+    ]
+  },
+  {
+    "firstName": "Naruto",
+    "lastName": "Uchiha",
+    "address": "Konoha, 142 apt.",
+    "metroStation": "4",
+    "phone": "+7 800 355 35 35",
+    "rentTime": 5,
+    "deliveryDate": "2025-06-06",
+    "comment": "Заказываем серый самокат",
+    "color": [
+      "GREY"
+    ]
+  },
+  {
+    "firstName": "Naruto",
+    "lastName": "Uchiha",
+    "address": "Konoha, 142 apt.",
+    "metroStation": "4",
+    "phone": "+7 800 355 35 35",
+    "rentTime": 5,
+    "deliveryDate": "2025-06-06",
+    "comment": "Заказываем любой самокат выбрав оба цвета",
+    "color": [
+      "BLACK",
+      "GREY"
+    ]
+  },
+  {
+    "firstName": "Naruto",
+    "lastName": "Uchiha",
+    "address": "Konoha, 142 apt.",
+    "metroStation": "4",
+    "phone": "+7 800 355 35 35",
+    "rentTime": 5,
+    "deliveryDate": "2020-06-06",
+    "comment": "Заказываем любой самокат без указания цвета",
+    "color": []
+  }
+]
